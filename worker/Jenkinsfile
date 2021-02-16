@@ -62,7 +62,7 @@ true
  agent any
  steps{
  echo 'Packaging worker app with docker'
- docker-compose version
+ sh 'docker-compose version'
       }
                        }
  }
