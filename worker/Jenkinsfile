@@ -58,16 +58,7 @@ true
        }
       }
                        }
- stage('Docker-Compose-test')
- steps{
- echo 'running docker compose test'
-
- docker-compose version
- 
  }
- }
- 
-}
  post{
  always{
  echo 'the job is complete'
