@@ -58,6 +58,13 @@ true
        }
       }
                        }
+ stage('docker-compose-test'){
+ agent any
+ steps{
+ echo 'Packaging worker app with docker'
+ docker-compose version
+      }
+                       }
  }
  post{
  always{
