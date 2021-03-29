@@ -45,7 +45,7 @@ docker{
                                                                   }
 //       }
 //      }
-                       }
+//                       }
  stage('docker-compose-test'){
  agent any
  steps{
