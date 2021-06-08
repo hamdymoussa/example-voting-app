@@ -3,10 +3,10 @@ pipeline{
  stages{
  
     stage('Checkout the deprovioning Repo') {
-      agent{ label 'docker'}   
       steps {
         script {
         echo "Checkout the deprovioning Repo"
+        node{
              checkout([
             $class: 'GitSCM',
             branches: [[name: '*/I123456-test']],
@@ -24,7 +24,7 @@ pipeline{
         }
       } 
     }
- 
+ }
  stage('build'){
  agent{
  docker{
