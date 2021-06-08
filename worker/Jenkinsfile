@@ -3,47 +3,26 @@ pipeline{
  stages{
  
     stage('Checkout the deprovioning Repo') {
-
+      agent{ label 'docker'}   
       steps {
-
         script {
-
         echo "Checkout the deprovioning Repo"
-
-           
-
-        checkout([
-
+             checkout([
             $class: 'GitSCM',
-
             branches: [[name: '*/I123456-test']],
-
             userRemoteConfigs: [
-
                 [ url: 'https://github.com/hamdymoussa/example-voting-app.git',
-
                   credentialsId: 'github-hamdy-secret-token-2'
-
                 ]
-
             ],
-
             doGenerateSubmoduleConfigurations: false,
-
             extensions: [
-
                 [$class: 'CleanBeforeCheckout'],
-
                 [$class: 'RelativeTargetDirectory', relativeTargetDir: 'runtime-ops']
-
             ]
-
          ])
-
         }
-
       } 
-
     }
  
  stage('build'){
